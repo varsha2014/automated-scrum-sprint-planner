@@ -1,0 +1,82 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Container for the Sprint Section */
+.calc-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Sprint Header */
+.calc-header {
+  font-size: 2em;
+  color: #2f3a52;
+  margin-bottom: 20px;
+}
+
+/* Grid layout for story cards */
+.story-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust columns */
+  gap: 20px;
+  padding: 0 20px;
+}
+
+/* Story Card Styling */
+.story-card {
+  background-color: #2f3a52;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  h2 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+  }
+
+  .point {
+    font-size: 1.2em;
+    color: #f4c542;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1em;
+    color: #ccc;
+    line-height: 1.5;
+  }
+}
+
+/* Total Points Section */
+.total-points {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  margin-top: 30px;
+}

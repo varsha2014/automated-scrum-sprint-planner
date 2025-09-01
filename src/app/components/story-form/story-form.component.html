@@ -1,0 +1,90 @@
+<form [formGroup]="form" class="story-form">
+  <h1>Add Story Form</h1>
+
+  <!-- Story Name -->
+  <div class="field">
+    <label for="name" class="label">Story Name</label>
+    <input
+      id="name"
+      type="text"
+      formControlName="name"
+      placeholder="Enter story name"
+      class="input"
+      aria-describedby="nameHelp nameError"
+    />
+    <small id="nameHelp" class="help-text">Enter the name of the story.</small>
+
+    <!-- Validation error for story name -->
+    <div
+      *ngIf="form.get('name')?.touched && form.get('name')?.invalid"
+      id="nameError"
+      class="error"
+    >
+      <div *ngIf="form.get('name')?.errors?.['required']">
+        Story name is required.
+      </div>
+      <div *ngIf="form.get('name')?.errors?.['nonUniqueName']">
+        Story name must be unique.
+      </div>
+    </div>
+  </div>
+
+  <!-- Story Points -->
+  <div class="field">
+    <label for="points" class="label">Story Point</label>
+    <input
+      id="points"
+      type="number"
+      formControlName="points"
+      min="1"
+      placeholder="Enter story points"
+      class="input"
+      aria-describedby="pointsHelp pointsError"
+    />
+    <small id="pointsHelp" class="help-text"
+      >Enter the point value for the story.</small
+    >
+
+    <!-- Validation error for story points -->
+    <div
+      *ngIf="form.get('points')?.touched && form.get('points')?.invalid"
+      id="pointsError"
+      class="error"
+    >
+      <div *ngIf="form.get('points')?.errors?.['required']">
+        Story points are required.
+      </div>
+      <div *ngIf="form.get('points')?.errors?.['min']">
+        Story points must be at least 1 point.
+      </div>
+    </div>
+  </div>
+
+  <!-- Story Description -->
+  <div class="field">
+    <label for="description" class="label">Story Description</label>
+    <textarea
+      id="description"
+      formControlName="description"
+      placeholder="Enter story description"
+      class="input"
+      rows="4"
+    ></textarea>
+    <small id="descriptionHelp" class="help-text"
+      >Provide a brief description of the story.</small
+    >
+  </div>
+
+  <!-- Add Story Button -->
+  <div class="controls">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="form.invalid"
+      title="Add this story to the list"
+      (click)="addStory()"
+    >
+      Add Story
+    </button>
+  </div>
+</form>

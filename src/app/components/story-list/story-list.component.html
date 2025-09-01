@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Stories</h1>
+  <div class="story-list">
+    <!-- Use async pipe to subscribe to stories$ and loop through it -->
+    <div *ngFor="let story of stories$ | async" class="story-card">
+      <h2>{{ story.name }}</h2>
+      <p class="point">{{ story.points }}</p>
+      <p>{{ story.description }}</p>
+    </div>
+  </div>
+</div>

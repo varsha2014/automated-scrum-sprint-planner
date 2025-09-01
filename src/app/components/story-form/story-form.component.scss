@@ -1,0 +1,103 @@
+/* General form styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Story form container */
+.story-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form title */
+h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #2f3a52;
+}
+
+/* Input fields */
+.field {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.input:focus {
+    border-color: #2f3a52;
+    outline: none;
+}
+
+/* Error handling */
+.error {
+    color: #e74c3c;
+    margin-top: 10px;
+}
+
+.error div {
+    font-size: 0.9em;
+}
+
+/* Button container */
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+}
+
+.btn-primary {
+    background-color: #2f3a52;
+    color: #fff;
+    border: none;
+
+    &:hover {
+        background-color: #4a5b71;
+    }
+
+    &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+}
+
+/* Helper text styling */
+.help-text {
+    display: block;
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 5px;
+}

@@ -1,0 +1,90 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="generateSprint()"
+  class="sprint-calculator"
+>
+  <h1>Sprint Calculator</h1>
+
+  <!-- Sprint Name Input -->
+  <div class="field">
+    <label for="sprintName" class="label">Sprint Name</label>
+    <input
+      id="sprintName"
+      type="text"
+      formControlName="sprintName"
+      placeholder="Enter sprint name"
+      class="input"
+      aria-describedby="sprintNameHelp sprintNameError"
+    />
+    <!-- <small id="sprintNameHelp" class="help-text"
+      >Enter the name of the sprint.</small
+    > -->
+  </div>
+
+  <!-- Sprint Points Input -->
+  <div class="field">
+    <label for="sprintPoints" class="label">Sprint Points</label>
+    <input
+      id="sprintPoints"
+      type="number"
+      formControlName="capacity"
+      min="1"
+      step="1"
+      placeholder="Enter sprint points"
+      class="input"
+      aria-describedby="sprintPointsHelp sprintPointsError"
+    />
+    <!-- <small id="sprintPointsHelp" class="help-text"
+      >Enter the total sprint points.</small
+    > -->
+
+    <!-- Validation errors for sprint points -->
+    <div
+      *ngIf="
+        form.get('sprintPoints')?.touched && form.get('sprintPoints')?.invalid
+      "
+      id="sprintPointsError"
+      class="error"
+    >
+      <div *ngIf="form.get('sprintPoints')?.errors?.['required']">
+        Sprint points are required.
+      </div>
+      <div *ngIf="form.get('sprintPoints')?.errors?.['min']">
+        Sprint points must be at least 1.
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls: Buttons -->
+  <div class="controls">
+    <!-- Generate Sprint button -->
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="form.invalid"
+      title="Auto-generate a set of stories that fit within the sprint capacity"
+    >
+      Generate Sprint
+    </button>
+
+    <!-- Clear Stories button -->
+    <button
+      type="button"
+      class="btn btn-outline-danger"
+      (click)="clearStories()"
+      title="Remove all created stories"
+    >
+      Clear Stories
+    </button>
+
+    <!-- Clear Sprints button -->
+    <button
+      type="button"
+      class="btn btn-outline-secondary"
+      (click)="clearSprints()"
+      title="Remove all created sprints"
+    >
+      Clear Sprints
+    </button>
+  </div>
+</form>

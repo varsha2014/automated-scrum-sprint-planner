@@ -1,0 +1,20 @@
+<div class="calc-container">
+  <!-- Sprint Header -->
+  <h1 class="calc-header">Sprint</h1>
+  <!-- <h1 class="calc-header">Sprint {{ sprintId }}</h1> -->
+
+  <!-- Story Cards Section -->
+  <div class="story-list">
+    <!-- Loop through the selected stories using async pipe -->
+    <div *ngFor="let story of selectedStories$ | async" class="story-card">
+      <h2>{{ story.name }}</h2>
+      <div class="point">Point: {{ story.points }}</div>
+      <p>{{ story.description }}</p>
+    </div>
+  </div>
+
+  <!-- Total Points -->
+  <div class="total-points">
+    Total Points: {{ getTotalPoints((selectedStories$ | async) || []) }}
+  </div>
+</div>
